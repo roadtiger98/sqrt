@@ -1,17 +1,18 @@
 #include <cassert>
 #include <cmath>
 
-template<int x,int n = 222>
+
+template<int x,int n = 100>
 class const_sqrt
 {
 public:
-enum { value = (const_sqrt<x,n-1>::value + x/const_sqrt<x,n-1>::value)/2 };
+static const double value = (const_sqrt<x,n-1>::value + x/const_sqrt<x,n-1>::value)/2 ;
 };
 template<int x>
 class const_sqrt< x , 0 >
 {
 public:
-enum { value = 1 };
+static const double value = 1;
 };
 
 int main()
